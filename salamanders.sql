@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS salamanders;
+CREATE DATABASE IF NOT EXISTS u783815452_salamanders;
 USE salamanders;
 DROP TABLE IF EXISTS salamander;
 CREATE TABLE `salamander` (
@@ -21,6 +21,6 @@ INSERT INTO `salamander` (`id`, `name`, `habitat`, `description` ) VALUES
 ALTER TABLE `salamander`
   ADD PRIMARY KEY (`id`);
 
--- Create a user named sally and grant that user all privileges
-GRANT ALL PRIVILEGES ON salamanders.* TO 'sally'@'localhost' IDENTIFIED BY 'somepa55word';;
+-- Create a user named webuser and grant that user all privileges
+GRANT ALL PRIVILEGES ON salamanders.* TO 'u783815452_webuser'@'localhost' IDENTIFIED BY 'Vincent8693';
 FLUSH PRIVILEGES;

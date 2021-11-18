@@ -1,12 +1,7 @@
 <?php require_once('../../private/initialize.php');?>
 
 <?php
-$salamanders = [
-  ['id' => '1', 'position' => '1', 'visible' => '1', 'salamanderName' => 'Red-Legged Salamander'],
-  ['id' => '2', 'position' => '2', 'visible' => '1', 'salamanderName' => 'Pigeon Mountain Salamander'],
-  ['id' => '3', 'position' => '3', 'visible' => '1', 'salamanderName' => 'ZigZag Salamander'],
-  ['id' => '4', 'position' => '4', 'visible' => '1', 'salamanderName' => 'Slimy Salamander'],
-];
+    $salamander_set = find_all_salamanders();
 ?>
 
 
@@ -30,12 +25,12 @@ $salamanders = [
       <th>&nbsp;</th>
     </tr>
 
-    <?php foreach($salamanders as $salamander) { ?>
+    <?php while($salamander = mysqli_fetch_assoc($salamander_set)) { ?>
       <tr>
         <td><?php echo h($salamander['id']);?></td>
-        <td><?php echo h($salamander['position']);?></td>
-        <td><?php echo $salamander['visible'] == 1 ? 'true' : 'false';?></td>
-        <td><?php echo h($salamander['salamanderName']);?></td>
+        <td><?php echo h($salamander['name']);?></td>
+        <td><?php echo $salamander['habitat']?></td>
+        <td><?php echo h($salamander['description']);?></td>
         <td><a class="action" href="<?= url_for('salamanders/show.php?id='.h(u($salamander['id'])));?>">View</a></td>
         <td><a class="action" href="<?= url_for('salamanders/edit.php?id='.h(u($salamander['id'])));?>">Edit</a></td>
         <td><a class="action" href="">Delete</a></td>
