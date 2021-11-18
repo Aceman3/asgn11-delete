@@ -37,6 +37,9 @@
       </tr>
     <?php } ?>
   </table>
+  <?php
+    mysqli_free_result($salamander_set);
+  ?>
 </div>
     
 <?php include(SHARED_PATH . '/salamanderFooter.php'); ?>
