@@ -16,10 +16,10 @@
 
   <table class="list">
     <tr>
-      <td>ID</td>
-      <th>Position</th>
-      <th>Visible</th>
+    <td>ID</td>
       <th>Name</th>
+      <th>Habitat</th>
+      <th>Desc</th>
       <th>&nbsp;</th>
       <th>&nbsp;</th>
       <th>&nbsp;</th>
