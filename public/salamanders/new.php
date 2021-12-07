@@ -12,21 +12,18 @@
     <form action="<?= url_for('salamanders/create.php');?>" method="post">
       <dl>
         <dt>Salamander Name</dt>
-        <dd><input type="text" name="salamanderName" value=""></dd>
+        <dd><input type="text" name="name" value=""></dd>
       </dl>
       <dl>
-        <dt>Position</dt>
+        <dt>Habitat</dt>
         <dd>
-          <select name="position">
-            <option value="1">1</option>
-          </select>
+          <input type="text" name="habitat">
         </dd>
       </dl>
       <dl>
-        <dt>Visible</dt>
+        <dt>Description</dt>
         <dd>
-          <input type="hidden" name="visible" value="0">
-          <input type="checkbox" name="visible" value="1">
+          <input type="text" name="description">
         </dd>
       </dl>
       <div>

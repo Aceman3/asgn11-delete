@@ -9,4 +9,13 @@
     return $result;
   }
 
+  function find_salamander_id(){
+    $sql = "SELECT * FROM salamander ";
+    $sql .= "WHERE id='" . $id . "'";
+    $result = mysqli_query($db, $sql);
+    confirm_result_set($result);
+    $salamander = mysqli_fetch_assoc($result);
+    mysqli_free_result($result);
+  }
+
 ?>
