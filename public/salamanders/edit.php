@@ -3,7 +3,30 @@
 if(!isset($_GET['id'])){
   redirect_to(url_for('/salamanders/index.php'));
 }
-
+$id = $_GET['id'];
+if(is_request_post()) {
+  $salamander = [];
+  $salamander['name'] = $_POST['name'] ?? '';
+  $salamander['habitat'] = $_POST['habitat'] ?? '';
+  $salamander['description'] = $_POST['description'] ?? '';
+  
+  $sql = "UPDATE salamander SET ";
+  $sql .= "name='" . $salamander['name'] . "',";
+  $sql .= "habitat='" . $salamander['habitat'] . "',";
+  $sql .= "description='" . $salamander['description'] . "'";
+  $sql .= "WHERE id='" . $id . "' ";
+  $sql .= "LIMIT 1";
+  
+  $result = mysqli_query($db, $sql);
+  if($result) {
+      redirect_to(url_for('/salamanders/show.php?id=' . $id));
+  } else {
+      echo mysqli_error($db);
+      db_disconnect($db);
+      exit;
+  }
+  
+}  else {
 $id = $_GET['id'];
 $sql = "SELECT * FROM salamander ";
 $sql .= "WHERE id='" . $id . "'";
@@ -12,17 +35,7 @@ confirm_result_set($result);
 
 $salamander = mysqli_fetch_assoc($result);
 mysqli_free_result($result);
-
-if(is_request_post()) {
-  $name = $_POST['name'] ?? '';
-  $habitat = $_POST['habitat'] ?? '';
-  $description = $_POST['description'] ?? '';
-
-  echo "form parameters<br />";
-  echo "Salamander name: " . $name . "<br />";
-  echo "habitat: " . $habitat . "<br />";
-  echo "Description: " . $description . "<br />";
-} 
+}
 ?>
 
 <?php $page_title = 'Edit Salamander'; ?>
