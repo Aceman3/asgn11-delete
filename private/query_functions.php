@@ -18,14 +18,13 @@
     mysqli_free_result($result);
   }
 
-  function delete_salamander($id) {
+  function deleteSalamander($id) {
   global $db;
   $sql = "DELETE FROM salamander ";
   $sql .= "WHERE id='" . $id . "' ";
   $sql .= "LIMIT 1";
   
   $result = mysqli_query($db, $sql);
-
   if($result) {
     return true;
   } else {
@@ -34,5 +33,4 @@
     exit;
   }
   }
-
 ?>
